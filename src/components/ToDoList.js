@@ -6,6 +6,8 @@ const ToDoList = () => (
     // <React.Fragment> est un composant qui nous est offert par la bibliotheque React
     // afin d'embaler nos elements adjacents dans un composant React qui par defaut ne peut
     // contenir qu'un seul element meme si ce dernier est composée de plusieurs sous-elements 
+    // Ecrire <React.Fragment> est assez long, on peut tout simplement ecrire a la place:
+    //  <> elmt1, elmt2, elmtn </>.
     <React.Fragment>
         <h1 className="m-3">Liste de tâches</h1>
         <ul className="list-group m-3">
