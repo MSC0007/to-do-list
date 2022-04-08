@@ -8,7 +8,8 @@ const ToDoList = () => (
     // contenir qu'un seul element meme si ce dernier est composée de plusieurs sous-elements 
     // Ecrire <React.Fragment> est assez long, on peut tout simplement ecrire a la place:
     //  <> elmt1, elmt2, elmtn </>.
-    <React.Fragment>
+    //<React.Fragment>
+    <>
         <h1 className="m-3">Liste de tâches</h1>
         <ul className="list-group m-3">
             <li className="list-group-item d-flex align-tiems-center">
@@ -28,7 +29,8 @@ const ToDoList = () => (
                 <button className="btn btn-sm ml-auto btn-outline-success">&#x2713;</button>
             </li>
         </ul>
-    </React.Fragment>
+        {/* </React.Fragment> */}
+    </>
 )
 
 // Exportation de notre composant fonctionnel
