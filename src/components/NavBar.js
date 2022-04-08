@@ -17,6 +17,7 @@ const NavBar = () => (
         {/* Creation d'un bouton supplementaire dans notre composant React */}
         <button className="btn btn-outline-dark bg-light" ><FaTrash /></button>
     </footer>
+
 )
 
 // Exportation de notre composant "NavBar" en module
