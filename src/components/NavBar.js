@@ -2,6 +2,8 @@ import React from "react";
 // Importation de quelques icones de la bibliotheque React Icons.
 // "React Icons" va nous fournir ces icones sous la forme de composants React(</>).
 import { FaListAlt, FaCheckSquare, FaPlusSquare, FaTrash } from 'react-icons/fa';
+// Importation du composant "NavLink" qui provient de "react-router-dom"
+import { NavLink } from "react-router-dom";
 
 // Creation d'un composant React fonctionnel(une fonction) appelée:
 // "NavBar". Notre composant sera egale à une fonction 
