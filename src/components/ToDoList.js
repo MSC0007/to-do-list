@@ -4,7 +4,7 @@ import React, { Fragment } from "react";
 // JSX(Ici: elle nous renvoi la liste non-ordonée "ul")
 import initialData from "../initialData";
 
-const ToDoList = () => (
+const ToDoList = ({ tasks }) => (
     // <React.Fragment> est un composant qui nous est offert par la bibliotheque React
     // afin d'embaler nos elements adjacents dans un composant React qui par defaut ne peut
     // contenir qu'un seul element meme si ce dernier est composée de plusieurs sous-elements 
