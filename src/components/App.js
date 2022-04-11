@@ -5,8 +5,10 @@ import NavBar from "./NavBar";
 import ToDoList from "./ToDoList";
 // Importation du composant AddTask
 import AddTask from "./AddTask";
-// imporatation de trois composants de "React Router"
+// Imporatation de trois composants de "React Router"
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// Importation du module "initialData"
+import initialData from "../initialData";
 
 
 // NB: Dans react - router - dom v6, "Switch" à été remplacée par "Routes",
@@ -23,6 +25,8 @@ class App extends React.Component {
                     <Routes>
                         <Route path="/add-task" element={<AddTask />} />
                         <Route path="/" element={<ToDoList />} />
+                        {/* <Route path="/:filter" element={<ToDoList />} /> */}
+                        <Route path="/:filter" render={(props) => <ToDoList  {...props} tasks={initialData} />} />
                     </Routes>
                     <NavBar />
                 </BrowserRouter>

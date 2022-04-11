@@ -2,6 +2,8 @@ import React, { Fragment } from "react";
 // Creation d'un composant fonctionnel "ToDoList" qui sera utilisé en tant que module.
 // Notre fonction ToDoList sera egale à une fonction qui nous renvoi du code 
 // JSX(Ici: elle nous renvoi la liste non-ordonée "ul")
+import initialData from "../initialData";
+
 const ToDoList = () => (
     // <React.Fragment> est un composant qui nous est offert par la bibliotheque React
     // afin d'embaler nos elements adjacents dans un composant React qui par defaut ne peut

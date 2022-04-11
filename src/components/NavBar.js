@@ -12,9 +12,9 @@ const NavBar = () => (
 
     <footer className="d-flex justify-content-between bg-secondary p-3" id="mainFooter">
         <div className="btn-group">
-            <a href="#" className="btn btn-outline-dark bg-light"><FaListAlt /></a>
-            <a href="#" className="btn btn-outline-dark bg-light"><FaCheckSquare /></a>
-            <a href="#" className="btn btn-outline-dark bg-light"><FaPlusSquare /></a>
+            <NavLink to="/" className="btn btn-outline-dark bg-light"><FaListAlt /></NavLink>
+            <NavLink to="/completed" className="btn btn-outline-dark bg-light"><FaCheckSquare /></NavLink>
+            <NavLink to="/add-task" className="btn btn-outline-dark bg-light"><FaPlusSquare /></NavLink>
         </div>
         {/* Creation d'un bouton supplementaire dans notre composant React */}
         <button className="btn btn-outline-dark bg-light" ><FaTrash /></button>
