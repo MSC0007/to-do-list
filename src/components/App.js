@@ -6,7 +6,7 @@ import ToDoList from "./ToDoList";
 // Importation du composant AddTask
 import AddTask from "./AddTask";
 // Imporatation de trois composants de "React Router"
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 // Importation du module "initialData"
 import initialData from "../initialData";
 
@@ -22,12 +22,10 @@ class App extends React.Component {
 
             <section id="todo">
                 <BrowserRouter>
-                    <Routes>
-                        <Route path="/add-task" element={<AddTask />} />
-                        <Route path="/" element={<ToDoList />} />
-                        {/* <Route path="/:filter" element={<ToDoList />} /> */}
-                        <Route path="/:filter" render={(props) => <ToDoList  {...props} tasks={initialData} />} />
-                    </Routes>
+                    <Switch>
+                        <Route path="/add-task" component={AddTask} />
+                        <Route path="/:filter?" render={(props) => <ToDoList  {...props} tasks={initialData} />} />
+                    </Switch>
                     <NavBar />
                 </BrowserRouter>
             </section>
