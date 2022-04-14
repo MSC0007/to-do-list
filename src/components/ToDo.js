@@ -33,7 +33,7 @@ class ToDo extends React.Component {
 
     render() {
         return (
-            // Ajout d'une classe supplementaire pour afficher des informations à l'ecran.
+            // Ajout d'une classe supplementaire(bg-success) pour afficher des informations à l'ecran.
             // Verification de la valeur de completed: si c'est égale à "true" on ajoute la
             // classe bootstrap "bg-succes", sinon on ne fait rien "null". Pour la verification, 
             // ici nous utilisons une instruction ternaire. En fonction de la valeur de notre
