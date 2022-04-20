@@ -29,6 +29,12 @@ class AddTask extends React.Component {
 
         //Recuperation de la fonction onAddTask qui etait passée en proprieté. 
         this.props.onAddTask(this.newTask.value)
+
+        // Utilisation de la proprieté "push" de l'objet "history" qui est lui meme 
+        // une proprieté injecté par React-Router dans notre composant.
+        // "push" nous permet de rediriger vers la liste des taches aprés l'ajout d'une
+        // nouvelle tache. "Push" est une sous-proprieté de la proprieté history.
+        this.props.history.push('/')
     }
 
     render() {
