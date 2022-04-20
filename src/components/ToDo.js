@@ -28,6 +28,7 @@ class ToDo extends React.Component {
             completed: !prevState.completed
 
         }))
+        this.props.onToggleCompleted(this.props.task.id)
     }
 
 

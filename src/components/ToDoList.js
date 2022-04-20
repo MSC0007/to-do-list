@@ -6,7 +6,7 @@ import React from "react";
 import ToDo from "./ToDo";
 
 
-const ToDoList = ({ tasks, match }) => {
+const ToDoList = ({ tasks, match, onToggleCompleted }) => {
 
     // Creation d'une variable pour les taches filtrées
     let filteredTasks
@@ -49,7 +49,7 @@ const ToDoList = ({ tasks, match }) => {
                 <ul className="list-group m-3">
                     {
 
-                        filteredTasks.map((task) => <ToDo task={task} key={task.id} />)
+                        filteredTasks.map((task) => <ToDo task={task} key={task.id} onToggleCompleted={onToggleCompleted} />)
                     }
                 </ul>
             </>
