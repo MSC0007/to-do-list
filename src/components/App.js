@@ -11,6 +11,9 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import initialData from "../initialData";
 // Imporatation de la dependance "uniqueid"
 import uniqueId from "uniqueid";
+// Importation du composant "Fetching"
+import Fetching from "./Fetching";
+
 
 
 // NB: Dans react - router - dom v6, "Switch" à été remplacée par "Routes",
@@ -27,7 +30,28 @@ class App extends React.Component {
     // Nous allons egalement utiliser(this.state.tasks) dans la declaration de la 
     // route pour envoyer les taches dans le composant ToDoList
     state = {
-        tasks: initialData
+        // Nos taches 'tasks' sont une array vide au depart (chargement à distance des données) 
+        tasks: [],
+        // tasks: initialData,
+        // Ajout d'un etat supplementaire (proprieté supplementaire)
+        fetching: true
+    }
+
+
+    componentDidMount = () => {
+        // 'delay' (Delai aleatoire entre 1 et 5s)
+        let delay = Math.floor(Math.random() * 5000)
+
+        // Ici, on utilise 'setTimeout' pour simuler le chargement de nos données,
+        // dans la pratique il faudra eviter cette methode car elle pose des problemes de performances. 
+        setTimeout(() => {
+            this.setState({
+                fetching: false,
+                tasks: initialData
+            })
+        }
+            , delay)
+
     }
 
     // La variable "onToggleCompleted" est egale à une fonction qui prend en parametre
@@ -74,17 +98,58 @@ class App extends React.Component {
         }))
     }
 
+    // Pour finaliser notre application, il ne nous reste qu'a créer une nouvelle fonction pour
+    // gerer la suppression de nos taches. Cette fonction "osnDeleteCompleted" est égale à une 
+    // fonction anonyme qui ne recoit aucun parametres et qui modifie le state(la liste des taches) 
+    onDeleteCompleted = () => {
+        this.setState(prevState => {
+            let newState = prevState.tasks.filter(task => !task.completed)
+            return {
+                tasks: newState
+            }
+        })
+
+    }
+
+    // Experimenter avec les methodes du cycle de vie de nos composants. 
+    // Dans la console, nous pouvons voir les differents methodes du cycle 
+    // de vie de nos composants en faisant simplement un "console.log":
+    // 1. La methode "shouldComponentUpdate"
+    shouldComponentUpdate = () => {
+        console.log('Bonjour de shouldComponentUpdate')
+        return true
+    }
+
+    // 2. La methode "componentDidMount"
+    // componentDidMount = () => {
+    //     console.log('Bonjour de componentDidMount')
+    // }
+
+    // 3. La methode "componentDidUpdate"
+    componentDidUpdate = () => {
+        console.log('Bonjour de componentDidUpdate')
+    }
+
+    // 4. La methode "getSnapshotBeforeUpdate"
+    getSnapshotBeforeUpdate = () => {
+        console.log('Bonjour de getSnapshotBeforeUpdate')
+    }
+
     render() {
+        console.log('Bonjour de render')
         return (
 
             <section id="todo">
+                {this.state.fetching ? <Fetching /> : null}
                 <BrowserRouter>
                     <Switch>
                         {/* <Route path="/add-task" component={AddTask} /> */}
                         <Route path="/add-task" render={(props) => <AddTask {...props} onAddTask={this.onAddTask} />} />
                         <Route path="/:filter?" render={(props) => <ToDoList  {...props} tasks={this.state.tasks} onToggleCompleted={this.onToggleCompleted} />} />
                     </Switch>
-                    <NavBar />
+
+                    {/* Passage de la fonction "onDeleteCompleted" comme propriete au composant "NavBar.js" */}
+                    <NavBar onDeleteCompleted={this.onDeleteCompleted} />
                 </BrowserRouter>
             </section>
         )

@@ -8,16 +8,18 @@ import { NavLink } from "react-router-dom";
 // Creation d'un composant React fonctionnel(une fonction) appelée:
 // "NavBar". Notre composant sera egale à une fonction 
 // qui renvoie du code JSX 
-const NavBar = () => (
+const NavBar = ({ onDeleteCompleted }) => (
 
     <footer className="d-flex justify-content-between bg-secondary p-3" id="mainFooter">
         <div className="btn-group">
-            <NavLink to="/" className="btn btn-outline-dark bg-light"><FaListAlt /></NavLink>
+            {/* La propriete "exact" nous permet ici d'activer le bon bouton (celui qui correspond au composant */}
+            {/* de l'url) */}
+            <NavLink to="/" className="btn btn-outline-dark bg-light" exact={true}><FaListAlt /></NavLink>
             <NavLink to="/completed" className="btn btn-outline-dark bg-light"><FaCheckSquare /></NavLink>
-            <NavLink to="/add-task" className="btn btn-outline-dark bg-light"><FaPlusSquare /></NavLink>
+            <NavLink to="/add-task" className="btn btn-outline-dark bg-light" exact={true}><FaPlusSquare /></NavLink>
         </div>
         {/* Creation d'un bouton supplementaire dans notre composant React */}
-        <button className="btn btn-outline-dark bg-light" ><FaTrash /></button>
+        <button className="btn btn-outline-dark bg-light" onClick={onDeleteCompleted} ><FaTrash /></button>
     </footer>
 
 )
